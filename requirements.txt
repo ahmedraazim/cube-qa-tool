@@ -1,0 +1,38 @@
+# Core
+streamlit>=1.35.0
+lxml>=5.2.0
+requests>=2.31.0
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+chardet>=5.2.0
+
+# Document extraction
+pdfminer.six>=20221105
+python-docx>=1.1.0
+beautifulsoup4>=4.12.0
+openpyxl>=3.1.0
+Pillow>=10.0.0
+pandas>=2.1.0
+reportlab>=4.2.0
+
+# JS rendering — auto-downloads matching ChromeDriver
+selenium>=4.20.0
+webdriver-manager>=4.0.0
+
+# Optional: Playwright as secondary JS renderer
+# playwright>=1.40.0  # run: playwright install chromium
+
+# Optional: OCR for scanned PDFs
+pytesseract>=0.3.10
+
+# Optional: AI-assisted checks
+anthropic>=0.28.0
+
+# Optional: Language detection
+langdetect>=1.0.9
+
+# Testing
+pytest>=8.0.0
+
+# HTTP
+httpx>=0.27.0

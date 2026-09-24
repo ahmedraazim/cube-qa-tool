@@ -1,0 +1,2121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="metadata"/>
+        <xs:element ref="body"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="metadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="content-title"/>
+        <xs:element minOccurs="0" ref="content-number"/>
+        <!-- Added 10/02/2018-->
+        <xs:element ref="issue-date"/>
+        <xs:element minOccurs="0" ref="issuing-body"/>
+        <xs:element minOccurs="0" ref="compliance-date"/>
+        <xs:element minOccurs="0" ref="country-of-issue"/>
+        <!-- End 10/02/2018-->
+        <xs:element ref="translation-type"/>
+        <!-- End 13/03/2019 -->
+        <xs:element ref="translation-source"/>
+        <!-- ToBeAdded  -->
+        <xs:element minOccurs="0" ref="requested-url"/>
+        <!-- ToBeAdded -->
+        <xs:element minOccurs="0" ref="requested-urlname"/>
+        <!-- ToBeAdded -->
+        <xs:element minOccurs="0" ref="document-type"/>
+        <xs:element ref="url-link"/>
+        <xs:element minOccurs="0" ref="CubeBookId"/>
+        <!-- Added 17/12/2019-->
+        <xs:element minOccurs="0" ref="Citation"/>
+        <!-- Added 17/12/2019-->
+        <xs:element minOccurs="0" ref="IssuanceType"/>
+        <!-- Added 17/12/2019-->
+        <!-- modified 03/17/2020 made optional element -->
+       <xs:element minOccurs="0" name="Optical-Character-Recognition"/>
+        <!-- Added 07/01/2020-->
+        <xs:element minOccurs="0" ref="Update"/>
+		<!-- the below 4 elements were added on 23/04/2020-->
+		<xs:element ref="IssueDateStatus"/>
+		<xs:element minOccurs="0" ref="ComplianceDateStatus"/>
+		<xs:element ref="BookLoadType"/>
+		<xs:element minOccurs="0" name="version"/>
+		<!-- Added 19/06/2020-->
+        <xs:element ref="Language"/>
+        <!-- Added 17/05/2021-->
+        <xs:element minOccurs="0" ref="NativeCitation"/>
+        <!-- Added 04/01/2022-->
+        <xs:element minOccurs="0" ref="UpdateGUID"/>
+        <!-- Added 18/10/2022-->
+        <xs:element minOccurs="0" ref="BookIsPdf"/>
+        <xs:element minOccurs="0" ref="capture-date"/>
+        <xs:element minOccurs="0" ref="ContentType"/>
+        <xs:element minOccurs="0" ref="MetadataOverwrite"/>
+        <xs:element minOccurs="0" ref="effective-date"/>
+	</xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="content-title" type="xs:string"/>
+  <xs:element name="content-number" type="xs:string"/>
+  <!-- Added 10/02/2018-->
+  <xs:element name="issue-date" type="xs:string"/>
+  <xs:element name="issuing-body">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="compliance-date" type="xs:string"/>
+  <xs:element name="country-of-issue">
+    <xs:complexType mixed="true">
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- End 10/02/2018-->
+  <!-- Added 13/03/2019 -->
+  <xs:element name="translation-type" type="xs:string"/>
+  <!-- End 13/03/2019 -->
+  <xs:element name="translation-source" type="xs:string"/>
+  <!-- ToBeAdded -->
+    <xs:element name="requested-url" type="xs:string"/>
+  <!-- ToBeAdded -->
+    <xs:element name="requested-urlname" type="xs:string"/>
+  <!-- ToBeAdded -->
+  <xs:element name="document-type" type="xs:string"/>
+  <xs:element name="url-link" type="xs:string"/>
+  <!-- 03/17/2020 -->
+  <xs:element name="CubeBookId" type="xs:string"/>
+  <xs:element name="Citation" type="xs:string"/>
+  <xs:element name="IssuanceType" type="xs:string"/>
+  <!-- 03/17/2020 -->
+  <xs:element name="Update">
+    <xs:complexType>
+      <xs:attribute name="Date" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- added on 23/04/2020-->
+  <xs:element name="IssueDateStatus" type="xs:string"/>
+    <!-- added on 23/04/2020-->
+  <xs:element name="ComplianceDateStatus" type="xs:string"/>
+    <!-- added on 23/04/2020-->
+  <xs:element name="BookLoadType" type="xs:string"/>
+      <!-- 19/06/2020 -->
+  <xs:element name="Language" type="xs:string"/>
+  <xs:element name="NativeCitation" type="xs:string"/>
+  <xs:element name="UpdateGUID" type="xs:string"/>
+  <xs:element name="BookIsPdf" type="xs:string"/>
+      <!-- 18/01/2023 -->
+  <xs:element name="capture-date" type="xs:string"/>
+  <xs:element name="ContentType" type="xs:string"/>
+  <xs:element name="MetadataOverwrite" type="xs:string"/>
+  <xs:element name="effective-date" type="xs:string"/>
+  <xs:element name="body">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="title"/>
+        <xs:element ref="level"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="level">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="level"/>
+        <xs:element ref="html"/>
+        <xs:element ref="title"/>
+        <xs:element ref="Effective"/>
+        <xs:element ref="footnote"/>
+        <xs:element ref="removed_levels" />
+        <xs:element ref="removed_paragraphs" />
+      </xs:choice>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="num" use="required" type="xs:integer"/>
+      <xs:attribute name="rule" use="required"/>
+      <xs:attribute name="link"/>
+      <xs:attribute name="IsChangeMaterial" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removed_levels">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="removed_level">
+          <xs:complexType>
+            <xs:attribute name="id" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="html">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="p"/>
+        <xs:element ref="table"/>
+        <xs:element ref="img"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Effective">
+    <xs:complexType>
+      <xs:attribute name="Date" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="footnote">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="img"/>
+        <xs:element ref="p"/>
+        <xs:element ref="url"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+      <xs:attribute name="id" type="nonEmptyString"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- "table" modified 03/17/2020 added "style" attribute -->
+  <xs:element name="table">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="tr"/>
+      </xs:sequence>
+      <xs:attribute name="style" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tr">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="th"/>
+        <xs:element ref="td"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="td">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="p"/>
+        <xs:element ref="img"/>
+        <xs:element ref="table"/>
+      </xs:choice>
+      <xs:attribute name="colspan" type="xs:integer"/>
+      <xs:attribute name="rowspan" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+   <!-- Added 16/03/2020 -->
+  <xs:element name="span">
+  </xs:element>
+  <xs:element name="th">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+	<xs:element ref="p"/>
+        <xs:element ref="img"/>
+        <xs:element ref="table"/>
+      </xs:choice>
+      <xs:attribute name="colspan" type="xs:integer"/>
+      <xs:attribute name="rowspan" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="p">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+      <xs:attribute name="update_type" type="xs:string"/>
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+    </xs:element>
+    <xs:element name="img">
+    <xs:complexType>
+      <xs:attribute name="src" use="required"/>
+      <xs:attribute name="orgsrc"/>
+      <!--<xs:attribute name="id"/>-->
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="footnoteref">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="url"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+      <xs:attribute name="fid" use="required" type="nonEmptyString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="url">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="span" type="xs:string"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+      <xs:attribute name="link" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="nonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:pattern value=".*[^\s].*" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="validUrl">
+    <xs:restriction base="xs:anyURI">
+      <xs:pattern value="https?://.+" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="removed_paragraphs">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="p"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sup">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sub">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="u">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+    <xs:element name="i">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="b">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="strong">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="em">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="mark">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="small">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="del">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="ins">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="abbr">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="br">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="s">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="strike">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="wbr">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="acronym">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="blockquote">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="cite">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="q">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="h1">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="h2">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="h3">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="h4">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="h5">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+      <xs:element name="h6">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="audio">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="li">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="ol">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="picture">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="pre">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="source">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="svg">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="track">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="ul">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+        <xs:element name="video">
+    <xs:complexType mixed="true">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="span"/>
+        <xs:element ref="footnoteref"/>
+        <xs:element ref="url"/>
+        <xs:element ref="img"/>
+        <xs:element ref="sup"/>
+        <xs:element ref="sub"/>
+        <xs:element ref="u"/>
+        <xs:element ref="i"/>
+        <xs:element ref="b"/>
+        <xs:element ref="strong"/>
+        <xs:element ref="em"/>
+        <xs:element ref="mark"/>
+        <xs:element ref="small"/>
+        <xs:element ref="del"/>
+        <xs:element ref="ins"/>
+        <xs:element ref="abbr"/>
+        <xs:element ref="br"/>
+        <xs:element ref="s"/>
+        <xs:element ref="strike"/>
+        <xs:element ref="wbr"/>
+        <xs:element ref="acronym"/>
+        <xs:element ref="blockquote"/>
+        <xs:element ref="cite"/>
+        <xs:element ref="q"/>
+        <xs:element ref="h1"/>
+        <xs:element ref="h2"/>
+        <xs:element ref="h3"/>
+        <xs:element ref="h4"/>
+        <xs:element ref="h5"/>
+        <xs:element ref="h6"/>
+        <xs:element ref="audio"/>
+        <xs:element ref="li"/>
+        <xs:element ref="ol"/>
+        <xs:element ref="picture"/>
+        <xs:element ref="pre"/>
+        <xs:element ref="source"/>
+        <xs:element ref="svg"/>
+        <xs:element ref="track"/>
+        <xs:element ref="ul"/>
+        <xs:element ref="video"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

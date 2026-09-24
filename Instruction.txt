@@ -1,0 +1,43 @@
+Step 1 — Unzip
+
+Right-click cube_qa_tool_v9.zip → Extract All → extract to Downloads.
+
+
+Step 2 — Open Command Prompt
+
+Press Windows + R → type cmd → Enter.
+
+
+Step 3 — Navigate to folder
+
+cd C:\Users\Ahmed.Raazim\Downloads\cube_qa
+
+
+Step 4 — Create virtual environment
+
+python -m venv .venv
+
+
+Step 5 — Activate
+
+.venv\Scripts\activate
+
+
+Step 6 — Install everything
+
+pip install -r requirements.txt
+
+
+Step 7 — Install Selenium
+
+pip install selenium webdriver-manager
+
+
+Step 8 — Run
+
+streamlit run app.py
+
+
+Step 9 — Open browser
+
+Go to http://localhost:8501

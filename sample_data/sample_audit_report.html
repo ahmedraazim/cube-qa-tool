@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CUBE QA Audit Report — DE--DE--REG--22A6E807-6910-42AB-A752-C1DF1943EEF2_v1.xml</title>
+<style>
+  body {font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:0;padding:20px;background:#f6f8fa;color:#24292e}
+  .container {max-width:1100px;margin:0 auto;background:#fff;border-radius:8px;padding:24px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+  h1 {font-size:1.4em;border-bottom:1px solid #e1e4e8;padding-bottom:8px}
+  h2 {font-size:1.1em;margin-top:24px;color:#444}
+  .decision {font-size:1.3em;font-weight:700;padding:12px 16px;border-radius:6px;
+    background:#cb2431;color:white;margin:16px 0;display:inline-block}
+  .meta-grid {display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+  table {width:100%;border-collapse:collapse;font-size:.9em}
+  th {background:#f6f8fa;border:1px solid #e1e4e8;padding:8px;text-align:left}
+  td {border:1px solid #e1e4e8;padding:8px;vertical-align:top}
+  td.num {width:30px;text-align:center;font-weight:600}
+  td.reason {max-width:400px}
+  td.routing {white-space:nowrap}
+  .finding {background:#fff8dc;border-left:3px solid #e36209;padding:4px 8px;margin:4px 0;font-size:.85em}
+  .limitation {color:#666;font-size:.82em;margin-top:4px}
+  .handover {background:#f6f8fa;border:1px solid #e1e4e8;padding:12px;border-radius:4px;
+    white-space:pre-wrap;font-family:monospace;font-size:.9em}
+  code {background:#f6f8fa;padding:1px 4px;border-radius:3px;font-size:.85em}
+  .stats {display:flex;gap:16px;margin:12px 0}
+  .stat {background:#f6f8fa;padding:8px 16px;border-radius:6px;text-align:center}
+  .stat .val {font-size:1.5em;font-weight:700}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>CUBE New-Book QA Audit Report</h1>
+  <p><strong>File:</strong> DE--DE--REG--22A6E807-6910-42AB-A752-C1DF1943EEF2_v1.xml &nbsp;|&nbsp;
+     <strong>Run:</strong> 2026-09-24 08:43 UTC &nbsp;|&nbsp;
+     <strong>Run ID:</strong> <code>a14396e1-328f-481a-a3cf-6288e2958b7b</code></p>
+  <p><strong>SHA-256:</strong> <code>7a99d1a5a8c374f0e2ecc4e76ce792a396c24e15f06a78dbb8a3ca8c764f1623</code></p>
+  <p><strong>Source:</strong> https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução CMN&amp;numero=5280</p>
+
+  <div class="decision">FAIL</div>
+  <p><strong>Primary Route:</strong> Data Management</p>
+  <p><strong>Secondary Routes:</strong> Research</p>
+
+  <div class="stats">
+    <div class="stat"><div class="val">3</div><div>Confirmed Failures</div></div>
+    <div class="stat"><div class="val">6</div><div>Unresolved Checks</div></div>
+    <div class="stat"><div class="val">12</div><div>Total Checks</div></div>
+  </div>
+
+  <h2>Routing Explanation</h2>
+  <pre style="white-space:pre-wrap;background:#f6f8fa;padding:10px;border-radius:4px;font-size:.88em">FAIL — 3 confirmed failure(s).
+• Check 3 (Issuance Type): IssuanceType is blank.
+• Check 10 (Placeholder Metadata): 2 placeholder metadata value(s) found.
+• Check 11 (Issuance Date): Issuance date issue: IssueDateStatus='Date Replaced By Capture Date'. Stored date: 2026-09-24. Capture date: 2026-09-24.
+Also 6 unresolved check(s):
+  ↳ Check 1: Language detection unavailable (langdetect not installed). Cannot confirm Englis
+  ↳ Check 4: URL is present but retrieval failed: Retrieval error: Session.request() got an u
+  ↳ Check 5: Retrieval failed: Retrieval error: Session.request() got an unexpected keyword a</pre>
+
+  <h2>Recommended Handover Note</h2>
+  <div class="handover">FAILING — 3 confirmed failure(s): Check 3 (Issuance Type): IssuanceType is blank.; Check 10 (Placeholder Metadata): 2 placeholder metadata value(s) found.; Check 11 (Issuance Date): Issuance date issue: IssueDateStatus='Date Replaced By Capture Date'. Stored dat. Primary route: Data Management. Additionally, 6 check(s) could not be fully verified and require attention before resubmission.</div>
+
+  <h2>Check Results</h2>
+  <table>
+    <thead><tr>
+      <th>#</th><th>Check</th><th>QA Status</th><th>Execution</th>
+      <th>Reason & Evidence</th><th>Route</th>
+    </tr></thead>
+    <tbody>
+        <tr>
+          <td class="num">1</td>
+          <td><strong>Book Name</strong></td>
+          <td><span style="background:#e36209;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Unverified</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">Language detection unavailable (langdetect not installed). Cannot confirm English.<div class="limitation"><em>Limitations: Language detection may be uncertain for very short titles. Policy defines 'no special characters' — exact character set is configurable.</em></div></td>
+          <td class="routing"></td>
+        </tr>
+        <tr>
+          <td class="num">2</td>
+          <td><strong>Citation</strong></td>
+          <td><span style="background:#22863a;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Pass</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">Citation contains the accepted fallback value: &quot;Document Title as Citation&quot;.</td>
+          <td class="routing"></td>
+        </tr>
+        <tr>
+          <td class="num">3</td>
+          <td><strong>Issuance Type</strong></td>
+          <td><span style="background:#cb2431;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Fail</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">IssuanceType is blank.<div class="finding"><strong>Observed:</strong> (blank)<br><strong>Expected:</strong> An approved issuance type, e.g. 'Resolution'<br><code>//metadata/IssuanceType</code></div><div class="limitation"><em>Limitations: Suggested mapping is based on title text analysis only. A human reviewer must confirm against the permitted vocabulary.</em></div></td>
+          <td class="routing">Data Management</td>
+        </tr>
+        <tr>
+          <td class="num">4</td>
+          <td><strong>Source URL — Presence and Validity</strong></td>
+          <td><span style="background:#e36209;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Unverified</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">URL is present but retrieval failed: Retrieval error: Session.request() got an unexpected keyword argument 'max_redirects'. See check 5.<div class="limitation"><em>Limitations: URL syntax and HTTP 200 alone do not confirm document identity. A human must verify the URL loads the correct document.</em></div></td>
+          <td class="routing"></td>
+        </tr>
+        <tr>
+          <td class="num">5</td>
+          <td><strong>Source URL — Broken vs. Blocked</strong></td>
+          <td><span style="background:#e36209;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Unverified</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">Retrieval failed: Retrieval error: Session.request() got an unexpected keyword argument 'max_redirects' (HTTP no status). Cause is unresolved.<div class="finding"><strong>Observed:</strong> HTTP no response: Retrieval error: Session.request() got an unexpected keyword argument 'max_redirects'<br><strong>Expected:</strong> Successful retrieval of source document<br><code>//metadata/url-link</code></div><div class="limitation"><em>Limitations: Check 5 requires a second access method (VPN, different network) to distinguish broken from blocked. This tool makes a single attempt.</em></div></td>
+          <td class="routing">Research</td>
+        </tr>
+        <tr>
+          <td class="num">6</td>
+          <td><strong>TOC / Structure</strong></td>
+          <td><span style="background:#e36209;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Unverified</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">XML has 3 section(s). Cannot compare against source — source document not available.<div class="limitation"><em>Limitations: Source content could not be extracted (failed): Retrieval failed after retries. Cannot determine whether the link is genuinely broken or blocked by geography/network. Mark as Unverified.. Cannot compare structure against source.</em></div></td>
+          <td class="routing"></td>
+        </tr>
+        <tr>
+          <td class="num">7</td>
+          <td><strong>Content Fidelity</strong></td>
+          <td><span style="background:#e36209;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Unverified</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">Source content extraction incomplete. Cannot approve comparison.<div class="limitation"><em>Limitations: Source content could not be fully extracted (method: failed). Retrieval failed after retries. Cannot determine whether the link is genuinely broken or blocked by geography/network. Mark as Unverified.</em></div></td>
+          <td class="routing"></td>
+        </tr>
+        <tr>
+          <td class="num">8</td>
+          <td><strong>Translation Sanity</strong></td>
+          <td><span style="background:#e36209;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Unverified</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">Translation document not provided. Cannot assess translation sanity.<div class="finding"><strong>Observed:</strong> Language='en' but body title appears non-English: 'Resolução CMN n° 5.280 de 26/2/2026'<br><strong>Expected:</strong> Language field should match body content language, with a separate English translation tab<br><code>//metadata/Language</code></div><div class="limitation"><em>Limitations: No translation document provided. Cannot evaluate translation quality.; A title alone is never sufficient to declare a translation passed.</em></div></td>
+          <td class="routing"></td>
+        </tr>
+        <tr>
+          <td class="num">9</td>
+          <td><strong>Styling Exclusion</strong></td>
+          <td><span style="background:#0366d6;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Informational</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">Styling differences (bold, italic, capitalization, bullets, layout) are excluded from QA by policy and do not constitute failures.</td>
+          <td class="routing"></td>
+        </tr>
+        <tr>
+          <td class="num">10</td>
+          <td><strong>Placeholder Metadata</strong></td>
+          <td><span style="background:#cb2431;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Fail</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">2 placeholder metadata value(s) found.<div class="finding"><strong>Observed:</strong> issuing-body='DEFAULT' (UUID 513C8AE7-DD1D-466E-996A-1E55BB3EE5F5 is populated but does not validate the placeholder label)<br><strong>Expected:</strong> A real, specific issuing authority name (not a placeholder or DEFAULT)<br><code>//metadata/issuing-body</code></div><div class="finding"><strong>Observed:</strong> country-of-issue='DEFAULT' (UUID 740D12FE-D558-4274-8B4D-EF1787DDC6FD is populated but does not validate the placeholder label)<br><strong>Expected:</strong> A real, specific jurisdiction value (not a placeholder or DEFAULT)<br><code>//metadata/country-of-issue</code></div></td>
+          <td class="routing">Data Management</td>
+        </tr>
+        <tr>
+          <td class="num">11</td>
+          <td><strong>Issuance Date</strong></td>
+          <td><span style="background:#cb2431;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Fail</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">Issuance date issue: IssueDateStatus='Date Replaced By Capture Date'. Stored date: 2026-09-24. Capture date: 2026-09-24.<div class="finding"><strong>Observed:</strong> IssueDateStatus='Date Replaced By Capture Date'  issue-date='2026-09-24T00:00:00'<br><strong>Expected:</strong> Actual issuance date from the source, with IssueDateStatus reflecting a confirmed date<br><code>//metadata/IssueDateStatus</code></div><div class="limitation"><em>Limitations: No source document available for date verification.</em></div></td>
+          <td class="routing">Research</td>
+        </tr>
+        <tr>
+          <td class="num">12</td>
+          <td><strong>Final Sweep</strong></td>
+          <td><span style="background:#22863a;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Pass</span></td>
+          <td><span style="background:#586069;color:white;padding:2px 8px;border-radius:3px;font-size:0.85em;font-weight:600">Completed</span></td>
+          <td class="reason">Final sweep complete — no errors or warnings found.</td>
+          <td class="routing"></td>
+        </tr></tbody>
+  </table>
+
+  <h2>XML Metadata</h2>
+  <table><tr><td><strong>Document ID</strong></td><td><code>22a6e807-6910-42ab-a752-c1df1943eef2</code></td></tr>
+<tr><td><strong>CubeBookId</strong></td><td><code>(blank)</code></td></tr>
+<tr><td><strong>Content Title</strong></td><td><code>Resolution CMN no. 5,280 of 26/2/2026</code></td></tr>
+<tr><td><strong>Body Title</strong></td><td><code>Resolução CMN n° 5.280 de 26/2/2026</code></td></tr>
+<tr><td><strong>Language</strong></td><td><code>en</code></td></tr>
+<tr><td><strong>Translation Type</strong></td><td><code>English</code></td></tr>
+<tr><td><strong>Issuing Body</strong></td><td><code>DEFAULT</code></td></tr>
+<tr><td><strong>Country / Jurisdiction</strong></td><td><code>DEFAULT</code></td></tr>
+<tr><td><strong>Issue Date</strong></td><td><code>2026-09-24T00:00:00</code></td></tr>
+<tr><td><strong>IssueDateStatus</strong></td><td><code>Date Replaced By Capture Date</code></td></tr>
+<tr><td><strong>IssuanceType</strong></td><td><code>(blank)</code></td></tr>
+<tr><td><strong>Citation</strong></td><td><code>Document Title as Citation</code></td></tr>
+<tr><td><strong>Source URL (url-link)</strong></td><td><code>https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução CMN&amp;numero=5280</code></td></tr>
+<tr><td><strong>Capture Date</strong></td><td><code>2026-09-24T03:32:43</code></td></tr></table>
+
+  <h2>Schema Validation</h2><p>XSD Valid: True</p>
+
+  <hr>
+  <p style="color:#666;font-size:.82em">
+    Generated by CUBE QA Tool. This is an evaluation tool only.
+    No RM metadata was modified, no approval/rejection actions were taken.
+  </p>
+</div>
+</body>
+</html>

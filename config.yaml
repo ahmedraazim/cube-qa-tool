@@ -1,0 +1,118 @@
+# ─────────────────────────────────────────────────────────────────
+# CUBE New-Book QA — Application Configuration
+# Override any setting with an environment variable matching the
+# dotted key in UPPER_SNAKE_CASE, e.g. checks.book_name.allowed_chars
+# ─────────────────────────────────────────────────────────────────
+
+checks:
+  # Check 1: Allowed character policy for the book name (English metadata field).
+  # This applies ONLY to the metadata content-title, not to body content.
+  book_name:
+    # Regex character class of characters that are PERMITTED.
+    # Adjust to match your organisation's stated policy.
+    allowed_chars: "A-Za-z0-9 ,.:;'\"/()\\[\\]\\-\\–\\—&@#%+="
+    # Characters explicitly noted as problematic examples (informational only)
+    suspicious_chars: "~`!^*{}|<>?_"
+
+  # Check 3: Approved issuance-type vocabulary.
+  issuance_type:
+    approved_vocabulary:
+      - Regulation
+      - Directive
+      - Guidance
+      - Notice
+      - Circular
+      - Decision
+      - Order
+      - Rule
+      - Act
+      - Law
+      - Standard
+      - Policy Statement
+      - Consultation Paper
+      - Discussion Paper
+      - Technical Standard
+      - Implementing Act
+      - Delegated Act
+      - Recommendation
+      - Opinion
+      - Resolution
+      - Decree
+      - Ordinance
+      - Instruction
+      - Communiqué
+      - Supervisory Statement
+    fallback: "Notice"
+    # Mapping from document-type values to issuance types (for cross-check)
+    document_type_mapping:
+      Rules: Regulation
+      Regulation: Regulation
+      Directive: Directive
+      Notice: Notice
+      Guidance: Guidance
+      Circular: Circular
+      Standard: Standard
+      Resolution: Resolution
+      Decision: Decision
+      Order: Order
+      Decree: Decree
+
+  # Check 10: Values that identify placeholder metadata
+  placeholder_metadata:
+    placeholder_values:
+      - DEFAULT
+      - default
+      - ""
+      - "N/A"
+      - "n/a"
+      - "TBC"
+      - "TBD"
+      - "Unknown"
+      - "UNKNOWN"
+      - "Placeholder"
+      - "placeholder"
+
+  # Check 11: IssueDateStatus values that require investigation
+  issue_date_status:
+    warning_values:
+      - "Date Replaced By Capture Date"
+      - "Capture Date Used"
+      - "No Date Found"
+      - "Date Estimated"
+      - "Date Approximated"
+
+  # Check 6: Minimum sections to inspect for large documents
+  toc_structure:
+    full_inspect_threshold: 20      # Inspect all if <= this many sections
+    sample_first: 2
+    sample_middle: 2
+    sample_last: 2
+
+  # Check 7: Content fidelity thresholds
+  content_fidelity:
+    min_similarity_to_skip_detail: 0.98  # Similarity above which we still check numbers/dates
+    number_pattern: "\\b\\d[\\d.,]*\\b"  # Pattern for numeric values to check
+    date_pattern: "\\d{1,2}[/\\-.\\s]\\d{1,2}[/\\-.\\s]\\d{2,4}|\\d{4}[/\\-.]\\d{2}[/\\-.]\\d{2}"
+
+retrieval:
+  timeout_seconds: 20
+  max_bytes: 52428800   # 50 MB
+  max_redirects: 5
+  retry_attempts: 2
+  retry_delay_seconds: 2
+  allowed_schemes:
+    - http
+    - https
+  # Private/local network CIDRs to block (SSRF protection)
+  blocked_cidrs:
+    - "10.0.0.0/8"
+    - "172.16.0.0/12"
+    - "192.168.0.0/16"
+    - "127.0.0.0/8"
+    - "169.254.0.0/16"
+    - "::1/128"
+    - "fc00::/7"
+
+reporting:
+  max_evidence_excerpt_chars: 400
+  max_diff_context_chars: 200

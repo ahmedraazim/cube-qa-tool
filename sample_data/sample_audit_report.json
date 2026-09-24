@@ -1,0 +1,297 @@
+{
+  "run_id": "a14396e1-328f-481a-a3cf-6288e2958b7b",
+  "run_timestamp": "2026-09-24T08:43:52.310749",
+  "xml_filename": "DE--DE--REG--22A6E807-6910-42AB-A752-C1DF1943EEF2_v1.xml",
+  "xml_hash": "7a99d1a5a8c374f0e2ecc4e76ce792a396c24e15f06a78dbb8a3ca8c764f1623",
+  "source_identity": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução CMN&numero=5280",
+  "source_hash": null,
+  "overall_decision": "FAIL",
+  "primary_route": "Data Management",
+  "secondary_routes": [
+    "Research"
+  ],
+  "routing_explanation": "FAIL — 3 confirmed failure(s).\n• Check 3 (Issuance Type): IssuanceType is blank.\n• Check 10 (Placeholder Metadata): 2 placeholder metadata value(s) found.\n• Check 11 (Issuance Date): Issuance date issue: IssueDateStatus='Date Replaced By Capture Date'. Stored date: 2026-09-24. Capture date: 2026-09-24.\nAlso 6 unresolved check(s):\n  ↳ Check 1: Language detection unavailable (langdetect not installed). Cannot confirm Englis\n  ↳ Check 4: URL is present but retrieval failed: Retrieval error: Session.request() got an u\n  ↳ Check 5: Retrieval failed: Retrieval error: Session.request() got an unexpected keyword a",
+  "handover_note": "FAILING — 3 confirmed failure(s): Check 3 (Issuance Type): IssuanceType is blank.; Check 10 (Placeholder Metadata): 2 placeholder metadata value(s) found.; Check 11 (Issuance Date): Issuance date issue: IssueDateStatus='Date Replaced By Capture Date'. Stored dat. Primary route: Data Management. Additionally, 6 check(s) could not be fully verified and require attention before resubmission.",
+  "confirmed_failures": 3,
+  "unresolved_checks": 6,
+  "schema_validation_passed": true,
+  "schema_errors": [],
+  "checks": [
+    {
+      "check_number": 1,
+      "check_name": "Book Name",
+      "qa_status": "Unverified",
+      "execution_status": "Completed",
+      "reason": "Language detection unavailable (langdetect not installed). Cannot confirm English.",
+      "findings": [],
+      "method": "language-detection + character-set validation",
+      "coverage": "metadata/content-title only",
+      "recommended_correction": null,
+      "routing": null,
+      "verification_limitations": [
+        "Language detection may be uncertain for very short titles. Policy defines 'no special characters' — exact character set is configurable."
+      ],
+      "informational_notes": [
+        "Install langdetect to enable language detection."
+      ]
+    },
+    {
+      "check_number": 2,
+      "check_name": "Citation",
+      "qa_status": "Pass",
+      "execution_status": "Completed",
+      "reason": "Citation contains the accepted fallback value: \"Document Title as Citation\".",
+      "findings": [],
+      "method": "metadata-inspection",
+      "coverage": "Citation field",
+      "recommended_correction": null,
+      "routing": null,
+      "verification_limitations": [],
+      "informational_notes": []
+    },
+    {
+      "check_number": 3,
+      "check_name": "Issuance Type",
+      "qa_status": "Fail",
+      "execution_status": "Completed",
+      "reason": "IssuanceType is blank.",
+      "findings": [
+        {
+          "xml_id": null,
+          "parent_section_id": null,
+          "xpath": "//metadata/IssuanceType",
+          "source_location": null,
+          "observed": "(blank)",
+          "expected": "An approved issuance type, e.g. 'Resolution'",
+          "excerpt_xml": null,
+          "excerpt_source": null,
+          "severity": "error"
+        }
+      ],
+      "method": "metadata-inspection + title-analysis",
+      "coverage": "IssuanceType field + content-title",
+      "recommended_correction": "Set IssuanceType to an approved value. Suggested: 'Resolution'. If no type fits, the accepted fallback is 'Notice'.",
+      "routing": "Data Management",
+      "verification_limitations": [
+        "Suggested mapping is based on title text analysis only. A human reviewer must confirm against the permitted vocabulary."
+      ],
+      "informational_notes": [
+        "Suggested type based on title analysis: 'Resolution' (needs human verification against permitted vocabulary)."
+      ]
+    },
+    {
+      "check_number": 4,
+      "check_name": "Source URL — Presence and Validity",
+      "qa_status": "Unverified",
+      "execution_status": "Completed",
+      "reason": "URL is present but retrieval failed: Retrieval error: Session.request() got an unexpected keyword argument 'max_redirects'. See check 5.",
+      "findings": [],
+      "method": "url-structural-analysis + http-retrieval",
+      "coverage": "url-link, requested-url, requested-urlname",
+      "recommended_correction": null,
+      "routing": null,
+      "verification_limitations": [
+        "URL syntax and HTTP 200 alone do not confirm document identity. A human must verify the URL loads the correct document."
+      ],
+      "informational_notes": [
+        "URL field conflict: url-link='https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução CMN&numero=5280', requested-urlname='https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5280'. Conflicts must be resolved.",
+        "Blank URL fields (not failures if url-link is populated): ['requested-url']"
+      ]
+    },
+    {
+      "check_number": 5,
+      "check_name": "Source URL — Broken vs. Blocked",
+      "qa_status": "Unverified",
+      "execution_status": "Completed",
+      "reason": "Retrieval failed: Retrieval error: Session.request() got an unexpected keyword argument 'max_redirects' (HTTP no status). Cause is unresolved.",
+      "findings": [
+        {
+          "xml_id": null,
+          "parent_section_id": null,
+          "xpath": "//metadata/url-link",
+          "source_location": "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolução CMN&numero=5280",
+          "observed": "HTTP no response: Retrieval error: Session.request() got an unexpected keyword argument 'max_redirects'",
+          "expected": "Successful retrieval of source document",
+          "excerpt_xml": null,
+          "excerpt_source": null,
+          "severity": "error"
+        }
+      ],
+      "method": "http-retrieval",
+      "coverage": "single retrieval attempt from current network",
+      "recommended_correction": "Verify the URL from a different network or obtain a working source.",
+      "routing": "Research",
+      "verification_limitations": [
+        "Check 5 requires a second access method (VPN, different network) to distinguish broken from blocked. This tool makes a single attempt."
+      ],
+      "informational_notes": []
+    },
+    {
+      "check_number": 6,
+      "check_name": "TOC / Structure",
+      "qa_status": "Unverified",
+      "execution_status": "Completed",
+      "reason": "XML has 3 section(s). Cannot compare against source — source document not available.",
+      "findings": [],
+      "method": "xml-internal-inspection",
+      "coverage": "All 3 section(s)",
+      "recommended_correction": null,
+      "routing": null,
+      "verification_limitations": [
+        "Source content could not be extracted (failed): Retrieval failed after retries. Cannot determine whether the link is genuinely broken or blocked by geography/network. Mark as Unverified.. Cannot compare structure against source."
+      ],
+      "informational_notes": []
+    },
+    {
+      "check_number": 7,
+      "check_name": "Content Fidelity",
+      "qa_status": "Unverified",
+      "execution_status": "Completed",
+      "reason": "Source content extraction incomplete. Cannot approve comparison.",
+      "findings": [],
+      "method": "failed",
+      "coverage": "none",
+      "recommended_correction": null,
+      "routing": null,
+      "verification_limitations": [
+        "Source content could not be fully extracted (method: failed). Retrieval failed after retries. Cannot determine whether the link is genuinely broken or blocked by geography/network. Mark as Unverified."
+      ],
+      "informational_notes": []
+    },
+    {
+      "check_number": 8,
+      "check_name": "Translation Sanity",
+      "qa_status": "Unverified",
+      "execution_status": "Completed",
+      "reason": "Translation document not provided. Cannot assess translation sanity.",
+      "findings": [
+        {
+          "xml_id": null,
+          "parent_section_id": null,
+          "xpath": "//metadata/Language",
+          "source_location": null,
+          "observed": "Language='en' but body title appears non-English: 'Resolução CMN n° 5.280 de 26/2/2026'",
+          "expected": "Language field should match body content language, with a separate English translation tab",
+          "excerpt_xml": null,
+          "excerpt_source": null,
+          "severity": "warning"
+        }
+      ],
+      "method": "none",
+      "coverage": "none",
+      "recommended_correction": null,
+      "routing": null,
+      "verification_limitations": [
+        "No translation document provided. Cannot evaluate translation quality.",
+        "A title alone is never sufficient to declare a translation passed."
+      ],
+      "informational_notes": [
+        "The language label 'en' is inconsistent with non-English body content. This may mean the English translation is stored as the body instead of in a separate tab, or the Language field is incorrect."
+      ]
+    },
+    {
+      "check_number": 9,
+      "check_name": "Styling Exclusion",
+      "qa_status": "Informational",
+      "execution_status": "Completed",
+      "reason": "Styling differences (bold, italic, capitalization, bullets, layout) are excluded from QA by policy and do not constitute failures.",
+      "findings": [],
+      "method": "policy-application",
+      "coverage": "all",
+      "recommended_correction": null,
+      "routing": null,
+      "verification_limitations": [],
+      "informational_notes": [
+        "No source provided. Styling exclusion policy applies by default."
+      ]
+    },
+    {
+      "check_number": 10,
+      "check_name": "Placeholder Metadata",
+      "qa_status": "Fail",
+      "execution_status": "Completed",
+      "reason": "2 placeholder metadata value(s) found.",
+      "findings": [
+        {
+          "xml_id": null,
+          "parent_section_id": null,
+          "xpath": "//metadata/issuing-body",
+          "source_location": null,
+          "observed": "issuing-body='DEFAULT' (UUID 513C8AE7-DD1D-466E-996A-1E55BB3EE5F5 is populated but does not validate the placeholder label)",
+          "expected": "A real, specific issuing authority name (not a placeholder or DEFAULT)",
+          "excerpt_xml": null,
+          "excerpt_source": null,
+          "severity": "error"
+        },
+        {
+          "xml_id": null,
+          "parent_section_id": null,
+          "xpath": "//metadata/country-of-issue",
+          "source_location": null,
+          "observed": "country-of-issue='DEFAULT' (UUID 740D12FE-D558-4274-8B4D-EF1787DDC6FD is populated but does not validate the placeholder label)",
+          "expected": "A real, specific jurisdiction value (not a placeholder or DEFAULT)",
+          "excerpt_xml": null,
+          "excerpt_source": null,
+          "severity": "error"
+        }
+      ],
+      "method": "metadata-inspection",
+      "coverage": "country-of-issue, issuing-body",
+      "recommended_correction": "Replace DEFAULT/placeholder values with real taxonomy-mapped values. Do not invent replacement IDs — use the approved taxonomy lookup.",
+      "routing": "Data Management",
+      "verification_limitations": [],
+      "informational_notes": [
+        "The issuing authority is the government body that published the regulation, NOT the website publisher or host."
+      ]
+    },
+    {
+      "check_number": 11,
+      "check_name": "Issuance Date",
+      "qa_status": "Fail",
+      "execution_status": "Completed",
+      "reason": "Issuance date issue: IssueDateStatus='Date Replaced By Capture Date'. Stored date: 2026-09-24. Capture date: 2026-09-24.",
+      "findings": [
+        {
+          "xml_id": null,
+          "parent_section_id": null,
+          "xpath": "//metadata/IssueDateStatus",
+          "source_location": null,
+          "observed": "IssueDateStatus='Date Replaced By Capture Date'  issue-date='2026-09-24T00:00:00'",
+          "expected": "Actual issuance date from the source, with IssueDateStatus reflecting a confirmed date",
+          "excerpt_xml": null,
+          "excerpt_source": null,
+          "severity": "error"
+        }
+      ],
+      "method": "metadata-inspection + source-date-extraction",
+      "coverage": "issue-date, IssueDateStatus, capture-date",
+      "recommended_correction": "Replace the date with the actual issuance date from the source document. Never automatically substitute the effective date or capture date.",
+      "routing": "Research",
+      "verification_limitations": [
+        "No source document available for date verification."
+      ],
+      "informational_notes": [
+        "IssueDateStatus='Date Replaced By Capture Date' indicates the stored date may not be the actual issuance date. A capture-date substitution is a serious error — an incorrect date reaching a customer is a real problem.",
+        "Capture date: 2026-09-24T03:32:43",
+        "issue-date (2026-09-24) matches capture-date (2026-09-24) — confirms capture-date substitution."
+      ]
+    },
+    {
+      "check_number": 12,
+      "check_name": "Final Sweep",
+      "qa_status": "Pass",
+      "execution_status": "Completed",
+      "reason": "Final sweep complete — no errors or warnings found.",
+      "findings": [],
+      "method": "structural-inspection + source-comparison",
+      "coverage": "images, footnotes, tables, duplication",
+      "recommended_correction": null,
+      "routing": null,
+      "verification_limitations": [],
+      "informational_notes": [
+        "No images found in XML. This is NOT automatically acceptable — check whether the source document contains images that should have been captured.",
+        "No footnotes in XML. Confirm source has no footnotes (not assumed)."
+      ]
+    }
+  ]
+}
